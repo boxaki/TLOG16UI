@@ -1,0 +1,74 @@
+/* 
+    Created on : 23-Mar-2018, 11:04:02
+    Author     : Akos Varga
+*/
+body, html{
+    height: 100%;
+}
+
+.pagination-buttons{
+    margin: 10px 0px;
+}
+
+.calendar table{    
+    table-layout: fixed;    
+}
+
+.calendar th{
+    background-color: limegreen;
+    text-align: center;
+    color: white;    
+}
+
+.calendar td{
+    background-color: mediumaquamarine;
+    color: white;
+}
+
+.calendar td a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.calendar td:hover{
+    background-color: #38ad86;    
+}
+
+.calendar td:hover .inactive{
+    color: #38ad86;
+}
+
+.calendar td.other-month{
+    background-color: lightslategray;    
+}
+
+#taskList.calendar table{
+    table-layout: auto;
+}
+
+.min{
+    text-align: center;
+    color: white;
+}
+
+.inactive{
+    text-align: right;
+    color: mediumaquamarine;
+}
+
+.positive{
+    color: green;
+}
+
+.negative{
+    color: red;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timelogger</title>        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">        
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <span class="navbar-brand">Timelogger</span>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#" data-toggle="tooltip" title="Calendar view"><span class="glyphicon glyphicon-calendar"></span></a></li>
+                    <li class="active"><a href="#" data-toggle="tooltip" title="List view"><span class="glyphicon glyphicon-list"></span></a></li>                    
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="pagination-buttons text-center">
+                <div class="btn-group">                    
+                    <button type="button" class="btn btn-primary btn-lg">&lt;</button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
+                            2018 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">2017</a></li>
+                            <li><a href="#">2016</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
+                            01 <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">02</a></li>
+                            <li><a href="#">03</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
+                            01 <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">02</a></li>
+                            <li><a href="#">31</a></li>
+                        </ul>
+
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg">&gt;</button>                    
+                </div>
+            </div>
+
+
+
+            <div class="table-responsive calendar" id="taskList" style="margin: 10px 0px">
+                <table class="table table-bordered">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Task Id</th>
+                            <th>Comment</th>
+                            <th>Start time</th>
+                            <th>End time</th>
+                            <th>Length</th>
+                            <th>Edit</th>                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>                        
+                            <td>1234</td>
+                            <td>No comment</td>
+                            <td>08:00</td>
+                            <td>09:00</td>
+                            <td>60</td>
+                            <td><a data-toggle="modal" data-target="#edit_task">Edit</a></td>
+                        </tr>
+                        <tr>                        
+                            <td>2345</td>
+                            <td>Yes comment</td>
+                            <td>09:00</td>
+                            <td>19:00</td>
+                            <td>600</td>
+                            <td><a data-toggle="modal" data-target="#edit_task">Edit</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center" colspan="6"><a data-toggle="modal" data-target="#new_task">+ New Task</a></td>
+                        </tr>
+
+                    </tbody>
+                </table>                
+            </div>
+
+            <div class="modal fade" id="edit_task" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content col-xs-6">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Change task details</h4>
+                        </div>
+                        <div class="modal-body">                        
+                            <form action="#">
+                                <div class="form-group">
+                                    <label for="taskId">task id:</label>
+                                    <input type="text" class="form-control" id="taskId"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment">comment:</label>
+                                    <textarea class="form-control" rows="2" id="comment"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="startTime">start time:</label>
+                                    <input type="text" class="form-control" id="startTime"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="endTime">end time:</label>
+                                    <input type="text" class="form-control" id="endTime"/>
+                                </div>
+                            </form>                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Modify</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="statistics">
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Required minutes</th>
+                                    <th>Sum of day</th>
+                                    <th>Extra minutes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>450</td>
+                                    <td>660</td>                        
+                                    <td class="positive">210</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-sm-offset-6"></div>
+                </div>
+            </div>
+            <div class="modal fade" id="new_task" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content col-xs-6">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add new task</h4>
+                        </div>
+                        <div class="modal-body">                        
+                            <form action="#">
+                                <div class="form-group">
+                                    <label for="taskId">task id:</label>
+                                    <input type="text" class="form-control" id="taskId"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment">comment:</label>
+                                    <textarea class="form-control" rows="2" id="comment"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="startTime">start time:</label>
+                                    <input type="text" class="form-control" id="startTime"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="endTime">end time:</label>
+                                    <input type="text" class="form-control" id="endTime"/>
+                                </div>
+                            </form>                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Add</button>                        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
