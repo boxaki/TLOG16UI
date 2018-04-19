@@ -8,6 +8,10 @@
         <link rel="stylesheet" type="text/css" href="index.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="index.js"></script>
+        
+            
     </head>
     <body>
 
@@ -18,7 +22,7 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#" data-toggle="tooltip" title="Calendar view"><span class="glyphicon glyphicon-calendar"></span></a></li>
-                    <li><a href="#" data-toggle="tooltip" title="List view"><span class="glyphicon glyphicon-list"></span></a></li>                    
+                    <li><a href="tasklist.html" data-toggle="tooltip" title="List view"><span class="glyphicon glyphicon-list"></span></a></li>                    
                 </ul>
             </div>
         </nav>
@@ -27,32 +31,31 @@
 
             <div class="pagination-buttons text-center">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary btn-lg">&lt;&lt;</button>
-                    <button type="button" class="btn btn-primary btn-lg">&lt;</button>
+                    <button type="button" class="btn btn-primary btn-lg" id="previous-year">&lt;&lt;</button>
+                    <button type="button" class="btn btn-primary btn-lg" id="previous-month">&lt;</button>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
-                            2018 <span class="caret"></span></button>
+                        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span id="year"></span>
+                            <span class="caret"></span></button>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">2017</a></li>
                             <li><a href="#">2016</a></li>
                         </ul>
-
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
-                            01 <span class="caret"></span></button>
+                        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown"><span id="month"></span>
+                            <span class="caret"></span></button>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">02</a></li>
                             <li><a href="#">03</a></li>
                         </ul>
 
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg">&gt;</button>
-                    <button type="button" class="btn btn-primary btn-lg">&gt;&gt;</button> 
+                    <button type="button" class="btn btn-primary btn-lg" id="next-month">&gt;</button>
+                    <button type="button" class="btn btn-primary btn-lg" id="next-year">&gt;&gt;</button> 
                 </div>
-            </div>
-
-            <div class="table-responsive calendar" style="margin: 10px 0px">
+            </div>   
+            
+            <div class="table-responsive calendar" >
                 <table class="table table-bordered">
                     <thead class="text-center">
                         <tr>
@@ -65,52 +68,8 @@
                             <th>Sun</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="other-month"></td>
-                            <td class="other-month"></td>
-                            <td class="other-month"></td>
-                            <td><a href="#">1<div class="min">10</div></a></td>
-                            <td><a href="#">2<div class="min">-5</div></a></td>
-                            <td><a href="#">3<div class="min">5</div></a></td>
-                            <td><a href="#">4<div class="min">25</div></a></td>
-                        </tr>
-                        <tr>
-                            <td><a data-toggle="modal" data-target="#required_hr">5<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">6<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">7<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">8<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">9<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">10<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">11<div class="inactive">+</div></a></td>
-                        </tr>
-                        <tr>
-                            <td><a data-toggle="modal" data-target="#required_hr">12<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">13<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">14<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">15<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">16<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">17<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">18<div class="inactive">+</div></a></td>
-                        </tr>
-                        <tr>
-                            <td><a data-toggle="modal" data-target="#required_hr">19<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">20<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">21<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">22<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">23<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">24<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">25<div class="inactive">+</div></a></td>
-                        </tr>
-                        <tr>
-                            <td><a data-toggle="modal" data-target="#required_hr">26<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">27<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">28<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">29<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">30<div class="inactive">+</div></a></td>
-                            <td><a data-toggle="modal" data-target="#required_hr">31<div class="inactive">+</div></a></td>
-                            <td class="other-month"></td>
-                        </tr>
+                    <tbody id="calendar-body">
+                        <tr></tr>                        
                     </tbody>
                 </table>                
             </div>
@@ -140,7 +99,7 @@
                     <div class="col-sm-offset-6"></div>
                 </div>
             </div>
-
+            
             <div class="modal fade" id="required_hr" role="dialog">
                 <div class="modal-dialog">
 
