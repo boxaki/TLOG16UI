@@ -88,9 +88,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>123</td>
-                                    <td>23</td>                        
-                                    <td class="negative">-100</td>
+                                    <td id="required_min"></td>
+                                    <td id="sum_of_month"></td>                        
+                                    <td id="extra_min" class=""></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -98,6 +98,10 @@
 
                     <div class="col-sm-offset-6"></div>
                 </div>
+            </div>
+            
+            <div id="test">
+                <h1>Test</h1>
             </div>
             
             <div class="modal fade" id="required_hr" role="dialog">
@@ -112,14 +116,15 @@
                         <div class="modal-body">
                             <form>
                                 <input type="text" name="requiredTime"/>
-                                <select>
+                                <select name="unit">
                                     <option>hr</option>
                                     <option>min</option>
                                 </select>
+                                <br /><button type="submit" class="btn btn-success"  id="confirm-required" data-dismiss="modal">OK</button>
                             </form>                            
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                            <button type="submit" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
 
